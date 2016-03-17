@@ -2,12 +2,12 @@ var merge = require('lodash').merge;
 var baseConfig = require('./base').config;
 var configurator = require('./base').configurator;
 
-var prod = {
-    name: 'book-inventory-micro-krk',
+var test = {
+    name: 'book-inventory-micro-krk-test',
     config_vars: {
         MONGOLAB_URI: process.env.MONGOLAB_URI,
         PORT: 80,
-        NAME: 'prod-edited'
+        NAME: 'test-edited-2'
     },
     addons: {},
     collaborators: [
@@ -17,6 +17,6 @@ var prod = {
     ]
 };
 
-var config = merge({}, baseConfig, prod);
+var config = merge({}, baseConfig, test);
 
 configurator(config);
