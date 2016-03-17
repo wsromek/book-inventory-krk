@@ -8,7 +8,7 @@ module.exports = function(stockRepository) {
 
     app.use(bodyParser.json());
 
-    app.get('/', routes.helloWorld);
+    app.get('/', (req, res, next) => res.send('Hello test world'));
     app.post('/stock', routes.putBook);
     app.get('/stock/:isbn', routes.getBookByISBN);
     app.get('/stock', routes.getBooks);
