@@ -14,7 +14,8 @@ var prod = {
         'krzysztof.rudowski@schibsted.pl',
         'michal.apanowicz@schibsted.pl',
         'wojciech.sromek@schibsted.pl'
-    ]
+    ],
+    log_drains: ['syslog://data.logentries.com:13636']
 };
 
 var config = merge({}, baseConfig, prod);
