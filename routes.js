@@ -19,7 +19,7 @@ module.exports = function(stockRepository) {
                     res.format({
                         html: function() {
                             res.status(200).send(
-                                util.format('<div class="copiesLeft">%s</div>', result)
+                                util.format('<p class="copiesLeft">%s</p>', result)
                             );
                         },
                         json: function() {
