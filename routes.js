@@ -1,3 +1,5 @@
+var util = require('util');
+
 module.exports = function(stockRepository) {
     return {
         helloWorld: function(req, res, next) {
@@ -14,7 +16,16 @@ module.exports = function(stockRepository) {
         getBookByISBN: function(req, res, next) {
             stockRepository.getCount(req.params.isbn).then(function(result) {
                 if (result !== null) {
-                    res.status(200).json({count: result});
+                    res.format({
+                        html: function() {
+                            res.status(200).send(
+                                util.format('<div class="copiesLeft">%s</div>', result)
+                            );
+                        },
+                        json: function() {
+                            res.json({count: result});
+                        }
+                    });
                 } else {
                     next();
                     //res.status(404).json({error: 'No book with ISBN: ' + req.params.isbn});
